@@ -78,3 +78,41 @@ def crear_articulo(request, title, content, public):
     )
     articulo.save()
     return HttpResponse(f"Artículo creado: <strong>{articulo.title} - {articulo.content}</strong>")
+
+def articulo(request):
+    try:
+        articulo = Article.objects.get(id=4)
+        response = (f"Artículo: {articulo.title} - {articulo.content}")
+    except:
+        response = ("Artículo no encontrado o no es público")
+    return HttpResponse(response)
+
+def editar_articulo(request, id):
+    articulo = Article.objects.get(pk=id)
+
+    articulo.title = "Batman"
+    articulo.content = "Pelicula del 2017"
+    articulo.public = True
+
+    articulo.save()
+
+    return HttpResponse(f"Artículo editado: <strong>{articulo.title} - {articulo.content}</strong>")
+
+def articulos(request):
+    articulos = Article.objects.all()
+
+    articulos = Article.objects.filter(title__contains="articulo")
+
+    articulos = Article.objects.filter(title="Articulo", public=False)
+
+    articulos = Article.objects.raw("SELECT * FROM miapp_article WHERE title='Articulo' AND public=0")
+
+    return render(request, 'articulos.html', {
+        'articulos': articulos
+    })
+
+def borrar_articulo(request, id):
+    articulo = Article.objects.get(pk=id)
+    articulo.delete()
+
+    return redirect('articulos')
