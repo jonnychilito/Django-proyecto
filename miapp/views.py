@@ -159,7 +159,7 @@ def articulos(request): # Creacion de la vista de articulos
     #Creamos una template para listar varos articulos
     #1. hacemos la peticion a la base de datos
     #Creamos la variable articulos y LLamamos al modelo Article, usamos objects para porder hacer una consulta
-    articulos = Article.objects.all().order_by('-id') #En este caso no usamos el metodo get si no el metodo all()
+    articulos = Article.objects.filter(public=True).order_by('-id') #En este caso no usamos el metodo get si no el metodo all()
     #para sacar toda la información
     #dentro de articulos tenemos una lista de objetos un array de objetos
     """
