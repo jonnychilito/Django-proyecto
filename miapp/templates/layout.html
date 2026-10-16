@@ -34,6 +34,12 @@
                 <a href="{% url 'articulos' %}">Articulos</a>
             </li>
             <li>
+                <a href="{% url 'create' %}">Crear Articulo</a>
+            </li>
+            <li>
+                <a href="{% url 'create_full' %}">Crear articulo Clases</a>
+            </li>
+            <li>
                 <a href="{% url 'hola_mundo' %}">Hola Mundo</a>
             </li>
             <li>
@@ -47,7 +53,7 @@
 
     <div id="content">
         <div class="box">
-            <h1 class="title">Titulo de prueba</h1>
+            <!-- <h1 class="title">Titulo de prueba</h1> -->
             {% block content %}
             <!-- Codigo que viene del template -->
             <strong>Contenido del bloque original</strong>
