@@ -9,9 +9,9 @@
                 <h2>{{ article.title }}</h2>
                 <p>
                     {% for category in article.categories.all %}
-                       <a href="#"> {{category}} </a>
+                       <a href="{% url 'category' category.id %}"> {{category.name}} </a>
 
-                        {% if forloop.counter < article.categories.all|length  %}
+                        {% if forloop.counter < article.category_id.all|length  %}
                             {{"-"}}
                         {% endif %}
 
