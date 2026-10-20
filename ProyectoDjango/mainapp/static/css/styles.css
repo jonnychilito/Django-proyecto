@@ -161,6 +161,8 @@ nav > ul > li:hover > ul > li:hover a{
 }
 /*ancho de los controles*/
 .box form input[type="text"],
+.box form input[type="email"],
+.box form input[type="password"],
 .box form textarea,
 .box form select{
     width: 100%;
@@ -189,10 +191,22 @@ nav > ul > li:hover > ul > li:hover a{
 .box form button:hover{
     cursor: pointer;
     background: #1f7e58;
-}
+}   
 .rojo{
     color: red;
     box-shadow: 0px 0px 4px black;
+}
+.message,
+.alert-success,
+.alert{
+    padding: 20px;
+    background: #1f7e58;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.alert-warning{
+    background: #8f0909;
 }
 /*Estilos para title*/
 .title{
