@@ -17,7 +17,7 @@ def about(request):
 
 def register_page(request):
 
-    if request.user.is_athenticated():
+    if request.user.is_athenticated:
         return redirect('inicio')
     else:
         register_form = RegisterForm()
@@ -37,7 +37,7 @@ def register_page(request):
         })
 
 def login_page(request):
-    if request.user.is_athenticated():
+    if request.user.is_athenticated:
         return redirect('inicio')
     else:
         if request.method == 'POST':
